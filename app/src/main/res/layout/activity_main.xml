@@ -11,7 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Testing"
+        android:textSize="32.sp"
+        android:id="@+id/user_name"
         />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="What is your name?"
+        android:id="@+id/name_input"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_view"

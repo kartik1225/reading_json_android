@@ -3,6 +3,9 @@ package com.example.readingjson
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
+import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.serialization.json.Json
@@ -10,12 +13,22 @@ import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
     lateinit var recyclerView : RecyclerView
+    lateinit var nameEditTextView: EditText
+    var userName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.rc_view)
+        nameEditTextView = findViewById(R.id.name_input)
+        var userNameView = findViewById<TextView>(R.id.user_name)
+
+        nameEditTextView.addTextChangedListener { text ->
+            userName = text.toString()
+            userNameView.text = userName
+        }
+
 
         recyclerView.layoutManager = LinearLayoutManager(this)
 
